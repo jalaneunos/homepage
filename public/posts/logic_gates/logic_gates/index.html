@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="NAND
+
+
+  
+      
+          a
+          b
+          out
+      
+  
+  
+      
+          0
+          0
+          1
+      
+      
+          0
+          1
+          1
+      
+      
+          1
+          0
+          1
+      
+      
+          1
+          1
+          0
+      
+  
+
+NAND takes two inputs, and will 1 unless both inputs are 1, in which case it will return 0.
+NAND is an universal logic gate, which means any gate logic can be formed from it. We will use NAND as the building block for all other gates basic gates.
+NOT
+![[not_gate.png]]
+
+  
+      
+          in
+          out
+      
+  
+  
+      
+          0
+          1
+      
+      
+          1
+          0
+      
+  
+
+the NOT gate inverts its input.">  
+
+  <title>
+    
+      logic gates
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.900100e9dbee2d56c58fac8bb717037cae7e26a9c36c29d2ff587bdd65f0cbbe510b41d81a3bb234919cdfdc7550d786b2fab70c8fc507772d732fe097106d12.css" integrity="sha512-kAEA6dvuLVbFj6yLtxcDfK5&#43;JqnDbCnS/1h73WXwy75RC0HYGjuyNJGc39x1UNeGsvq3DI/FB3ctcy/glxBtEg==" />
+  
+</head>
+<body a="dark">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2025-02-08 23:51:21 &#43;0800 &#43;08">
+                            2025-02-08
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>logic gates</h1>
+
+    
+
+    <h3 id="nand">NAND</h3>
+<p><img src="/content/posts/logic_gates/nand_gate.png" alt="[nand_gate.png]"></p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+  </tbody>
+</table>
+<p>NAND takes two inputs, and will 1 unless both inputs are 1, in which case it will return 0.</p>
+<p>NAND is an universal logic gate, which means any gate logic can be formed from it. We will use NAND as the building block for all other gates basic gates.</p>
+<h3 id="not">NOT</h3>
+<p>![[not_gate.png]]</p>
+<table>
+  <thead>
+      <tr>
+          <th>in</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+  </tbody>
+</table>
+<p>the NOT gate inverts its input.</p>
+<p>The NOT gate can be formed by connecting both inputs of a NAND gate to the same source. In the NAND truth table, when both inputs are identical, the output is the inverse of the input.</p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td><del>0</del></td>
+          <td><del>1</del></td>
+          <td><del>1</del></td>
+      </tr>
+      <tr>
+          <td><del>1</del></td>
+          <td><del>0</del></td>
+          <td><del>1</del></td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+  </tbody>
+</table>
+<p>![[not_gate_impl.png]]</p>
+<h3 id="and">AND</h3>
+<p>![[and_gate.png]]</p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+<p>the AND gate only outputs true when both inputs are true.</p>
+<p>By inverting the output of NAND, we get AND. Since NOT(NAND) is NOT(NOT AND), which simplifies to AND.
+![[and_gate_impl.png]]</p>
+<h3 id="or">OR</h3>
+<p>![[or_gate.png]]</p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+<p>The OR gate outputs true if at least one of its inputs is true.</p>
+<p>By inspecting the truth table, the only combination of inputs that results in output=0 occurs when a=0 and b=0.</p>
+<ol>
+<li>OR is false when NOT a AND NOT b</li>
+<li>By negating statement 1, OR becomes true when NOT (NOT a AND NOT b)</li>
+</ol>
+<p>![[or_gate_impl.png]]</p>
+<h3 id="xor">XOR</h3>
+<p>![[xor_gate.png]]</p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+  </tbody>
+</table>
+<p>The Exclusive Or (XOR) gate outputs 1 (True) only when one of the inputs is 1.</p>
+<p>Now that we have formed the {NOT, AND, OR} gates, we can implement any logic gate in an intuitive (albeit mostly suboptimal) manner.</p>
+<h4 id="the-intuitive-but-suboptimal-method">the intuitive-but-suboptimal method,</h4>
+<ol>
+<li>Inspect the rows where output=1. The second row in XOR is the first instance of output=1.</li>
+<li>The second row has inputs (a=0, b=1). (NOT a, b)</li>
+<li>Since the output (1) requires both of these inputs to be simultaneously present, we can use the AND gate to represent this relationship. (NOT a AND b)</li>
+<li>Repeating steps 2-3 for other rows where output=1, row 3 gives us: (a AND NOT b)</li>
+<li>Finally, we observe that <strong>either</strong> of these rows will be sufficient for out=1. Hence, we can chain the rows with OR. (NOT a AND b) OR (a AND NOT b)</li>
+</ol>
+<p>![[xor_gate_impl.png]]</p>
+<p>this method gives us an idiot-proof algorithm to implement any desired behaviour given the truth table, but it is often possible to introduce a few optimizations.</p>
+<p>Consider this alternative implementation of XOR:
+![[xor_gate_impl_optimized.png]]
+Only 3 gates are required, as supposed to 5 gates derived from the method. However, this optimization would require a little more creativity.</p>
+<h3 id="multiplexer">Multiplexer</h3>
+<p>![[mux_gate.png]]</p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>sel</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+<p>A multiplexer (MUX) takes three inputs: two data inputs (a, b) and a selector bit (sel). sel determines which of the two inputs is passed as the output.</p>
+<table>
+  <thead>
+      <tr>
+          <th>sel</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>a</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>b</td>
+      </tr>
+  </tbody>
+</table>
+<p>This gives 8 possible combinations of inputs. Applying the intuitive-but-suboptimal method:</p>
+<ol>
+<li>not A And B And Sel OR</li>
+<li>A And Not B And Not Sel OR</li>
+<li>A And B And Not Sel OR</li>
+<li>A And B And Sel</li>
+</ol>
+<p>We could directly implement this with logic gates we already have, but that would be quite tedious. On closer inspection of statements 1 and 4,</p>
+<ol>
+<li>not A And ==B And Sel== OR</li>
+<li>A And ==B And Sel==
+We observe that the value of A is inconsequential while B and Sel are present.
+Similarly with statements 2 &amp; 3,</li>
+<li>A And Not B And Not Sel OR</li>
+<li>A And B And Not Sel OR
+The value of B does not matter when we have A and Not Sel.</li>
+</ol>
+<p>The 4 statements can be reduced to
+B and Sel OR A and Not Sel
+Looking back at how the Mux gate is supposed to behave, we see that this makes sense intuitively and perhaps the brighter ones among us would have saw this answer immediately.</p>
+<p>![[mux_gate_impl.png]]</p>
+<h3 id="demultiplexer">Demultiplexer</h3>
+<p>![[dmux_gate.png]]</p>
+<table>
+  <thead>
+      <tr>
+          <th>in</th>
+          <th>sel</th>
+          <th>a (out)</th>
+          <th>b (out)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+<p>Demultiplexer (DMUX) has two inputs and two outputs. Focusing on each output column in isolation,
+a is true when: in And not sel
+b is true when: in And sel
+![[dmux_gate_impl.png]]</p>
+<h3 id="a-few-more-bits-not16-or16-and16">A few more bits: Not16, Or16, And16</h3>
+<p>![[not16_gate.png]]</p>
+<p>The gates above accept and produce one-bit inputs/outputs. On our journey towards artificial general intelligence, the ability to operate on more than 1-bit per operation would be helpful. So we aim for 16-bits.</p>
+<p>The simplest implementations of the 16-bit gates would be to apply the 1-bit gate 16 times, in parallel.
+![[not16_gate_impl.png]]</p>
+<p>Kindly exercise your imagination for And16 and Or16..</p>
+<h3 id="or8way">Or8Way</h3>
+<p>Another gate that could be useful later is the ability to check if any of the inputs are true; the implementation is straightforward.
+![[or8way_gate_impl.png]]</p>
+<h3 id="mux4way16">Mux4Way16</h3>
+<p>![[mux4way16_gate.png]]</p>
+<table>
+  <thead>
+      <tr>
+          <th>inputs</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>a</td>
+      </tr>
+      <tr>
+          <td>b</td>
+      </tr>
+      <tr>
+          <td>c</td>
+      </tr>
+      <tr>
+          <td>d</td>
+      </tr>
+      <tr>
+          <td>sel[0]</td>
+      </tr>
+      <tr>
+          <td>sel[1]</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>sel[0]</th>
+          <th>sel[1]</th>
+          <th>out</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>a</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>b</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>c</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>d</td>
+      </tr>
+  </tbody>
+</table>
+<p>To extend Mux to support four input choices. our intuitive-but-suboptimal method would be a pain with this many input combinations (6 inputs, $2^6$ possible combinations), so let&rsquo;s endeavor to solve this one with natural language.</p>
+<p>First we ignore the fact that we are working 16-bit inputs for a,b,c,d.</p>
+<h4 id="how-can-we-extend-2-choices-mux-to-4">How can we extend 2 choices (Mux) to 4?</h4>
+<p>Mux is essentially an if-statement (though it&rsquo;s definitely more appropriate to say that if-statements are Muxes). We observe that for out=a and out=b, sel[0] is 0 in both cases. Choosing between a or b is determined by the sel[1] bit. (A problem that can be solved with 2-choice Mux)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> sel[<span style="color:#ae81ff">0</span>]: <span style="color:#75715e"># sel: 0?</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> sel[<span style="color:#ae81ff">1</span>]: <span style="color:#75715e"># sel: 01</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> b
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>: <span style="color:#75715e"># sel: 00</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> a
+</span></span></code></pre></div><p>completing the code for c &amp; d,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> sel[<span style="color:#ae81ff">1</span>]: <span style="color:#75715e"># sel: 0?</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> sel[<span style="color:#ae81ff">0</span>]: <span style="color:#75715e"># sel: 01</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> b
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>: <span style="color:#75715e"># sel: 00</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> a
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>: <span style="color:#75715e"># sel: 1?</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> sel[<span style="color:#ae81ff">0</span>]: <span style="color:#75715e"># sel: 11</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> d
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>:  <span style="color:#75715e"># sel: 10</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> c
+</span></span></code></pre></div><p>![[mux4way16_gate_impl.png]]
+We can extend this even further, to 8 ways, or $2^x$ ways by repeatedly applying Mux in the same manner.</p>
+<p>To support 16-bit inputs, simply replace the gates in each Mux with Not16, And16 and Or16</p>
+<h3 id="dmux4way-dmux8way">DMux4Way, DMux8Way</h3>
+<p>![[dmux4way_gate.png]]
+Extending Dmux is simpler than Mux as it does not involve nested logic. We write one additional group of 2 ANDs for each new output.</p>
+<h3 id="more-than-just-stacking-nands">More Than Just Stacking NANDs</h3>
+<p>We built all the fundamental logic gates starting from NAND, but that doesn&rsquo;t mean chip designers simply order buckets of NAND gates online and start assembling computers from scratch. In reality, chip designers operate at a higher level of abstraction. Hardware description languages (HDLs) like Verilog enable designers to dictate the desired logic behaviour, and the required logic gates are automatically synthesized.</p>
+<p>But this wasn&rsquo;t a futile exercise, an adequate understanding of these foundational blocks will help us build more complex pieces required for practical computer features. In the next chapter, we will arrange the gates to build a key feature in a computer: arithmetic.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
