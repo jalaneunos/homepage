@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "C:/Users/User/Projects/homepage",
+	"sourceRoot": "C:/Users/User/Documents/computing/homepage",
 	"sources": [
 		"themes/nostyleplease/assets/css/main.scss"
 	],

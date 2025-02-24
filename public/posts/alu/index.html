@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Half Adder
+The first step is to add two 1-bit numbers. The largest possible result is 2 (1&#43;1). However, computers only recognize the digits 0 and 1. To handle this, we follow a process similar to how we count in decimal. For example, when counting, we go from 1, 2, 3, &hellip;, 9, and then to 10, adding a 1 to the tens place and resetting the ones place to 0 because we’ve run out of unique digits. In binary, the same principle applies. We count 0, 1, 10.">  
+
+  <title>
+    
+      ALU
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.900100e9dbee2d56c58fac8bb717037cae7e26a9c36c29d2ff587bdd65f0cbbe510b41d81a3bb234919cdfdc7550d786b2fab70c8fc507772d732fe097106d12.css" integrity="sha512-kAEA6dvuLVbFj6yLtxcDfK5&#43;JqnDbCnS/1h73WXwy75RC0HYGjuyNJGc39x1UNeGsvq3DI/FB3ctcy/glxBtEg==" />
+  
+</head>
+<body a="dark">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2025-02-24 21:12:52 &#43;0800 &#43;08">
+                            2025-02-24
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>ALU</h1>
+
+    
+
+    <h3 id="half-adder">Half Adder</h3>
+<p>The first step is to add two 1-bit numbers. The largest possible result is 2 (1+1). However, computers only recognize the digits 0 and 1. To handle this, we follow a process similar to how we count in decimal. For example, when counting, we go from 1, 2, 3, &hellip;, 9, and then to <strong>10</strong>, adding a 1 to the tens place and resetting the ones place to 0 because we’ve run out of unique digits. In binary, the same principle applies. We count 0, 1, <strong>10</strong>.</p>
+<p><img src="images/half_adder.png" alt="[half_adder.png]"></p>
+<p>We&rsquo;ll refer to the result in the <strong>ones place</strong> as the <strong>sum</strong>. Since we&rsquo;re working in binary, the <strong>carry</strong> represents the <strong>twos place</strong> instead of the tens place, as it would in decimal.</p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>sum</th>
+          <th>carry</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+<p>By focusing on the <strong>sum</strong> and <strong>carry</strong> columns in isolation, we can immediately identify previously built logic gates that correspond to these results. <strong>sum</strong> can be represented with <strong>XOR</strong>, and <strong>carry</strong> can be represented with <strong>AND</strong>.</p>
+<p><img src="images/half_adder_impl.png" alt="[half_adder_impl.png]"></p>
+<h3 id="full-adder">Full Adder</h3>
+<p>The full adder takes three 1-bit inputs.</p>
+<p><img src="images/full_adder.png" alt="[full_adder.png]"></p>
+<p>The maximum result is now 3 (11 in binary).</p>
+<table>
+  <thead>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>c</th>
+          <th>sum</th>
+          <th>carry</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+<p>A <strong>full adder</strong> can be constructed using two <strong>half adders</strong>. Here&rsquo;s how:</p>
+<ol>
+<li><strong>half adder 1</strong>
+<ul>
+<li>Use a half adder to add the first two inputs, <strong>a</strong> and <strong>b</strong>.</li>
+<li>The output will give us two values:
+<ul>
+<li><strong>sum</strong>: Represents the <strong>ones place</strong>.</li>
+<li><strong>carry</strong>: Represents the <strong>twos place</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>half adder 2</strong>
+- Next, we add the third input, <strong>c</strong>, to the <strong>sum</strong> obtained from the first half adder (<strong>sum + c</strong>).
+<ul>
+<li>We add these together because they belong to the same place value (<strong>ones place</strong>).</li>
+</ul>
+</li>
+</ol>
+<p><img src="images/full_adder_impl_1.png" alt="[full_adder_impl_1.png]"></p>
+<h4 id="identifying-the-correct-carry">Identifying the correct carry</h4>
+<p>the above logic leaves us with <strong>two carry outputs</strong>—one from each half adder.
+Question is: <strong>Which carry should we use?</strong></p>
+<p>consider the following cases:</p>
+<h4 id="case-1-carry1--1"><strong>case 1: carry1 = 1</strong></h4>
+<ul>
+<li>If the first half adder’s carry output (<strong>carry1</strong>) is 1, it means the initial sum (<strong>sum1</strong>) must be 0 (refer to half adder&rsquo;s truth table).</li>
+<li>When the second half adder processes <strong>sum1 + c</strong>, it must be <strong>0 + c</strong>. This combination can never produce a binary result of <code>10</code>, so <strong>carry2</strong> must be 0.</li>
+<li><strong>In summary:</strong> If <strong>carry1 = 1</strong>, then <strong>carry2 = 0</strong>.</li>
+</ul>
+<h4 id="case-2-carry1--0"><strong>case 2: carry1 = 0</strong></h4>
+<ul>
+<li>If <strong>carry1</strong> is 0, the intermediate sum (<strong>sum1</strong>) could be either 0 or 1.</li>
+<li>Consequently, the second half adder (<strong>sum1 + c</strong>) might produce a carry (<strong>carry2</strong>) of 0 or 1.</li>
+</ul>
+<p>The takeaway is that <strong>carry1</strong> and <strong>carry2</strong> will <strong>never</strong> both be 1 at the same time. Therefore, the final carry output for the full adder can be determined by taking the <strong>OR</strong> of these two values.</p>
+<p><img src="images/full_adder_impl.png" alt="[full_adder_impl.png]"></p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

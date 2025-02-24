@@ -6,8 +6,15 @@
     <description>Recent content on xavier goh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Feb 2025 23:51:21 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2025 21:12:52 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ALU</title>
+      <link>http://localhost:1313/posts/alu/</link>
+      <pubDate>Mon, 24 Feb 2025 21:12:52 +0800</pubDate>
+      <guid>http://localhost:1313/posts/alu/</guid>
+      <description>&lt;h3 id=&#34;half-adder&#34;&gt;Half Adder&lt;/h3&gt;&#xA;&lt;p&gt;The first step is to add two 1-bit numbers. The largest possible result is 2 (1+1). However, computers only recognize the digits 0 and 1. To handle this, we follow a process similar to how we count in decimal. For example, when counting, we go from 1, 2, 3, &amp;hellip;, 9, and then to &lt;strong&gt;10&lt;/strong&gt;, adding a 1 to the tens place and resetting the ones place to 0 because we’ve run out of unique digits. In binary, the same principle applies. We count 0, 1, &lt;strong&gt;10&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>logic gates</title>
       <link>http://localhost:1313/posts/logic_gates/</link>
