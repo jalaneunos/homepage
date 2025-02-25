@@ -72,3 +72,61 @@ The takeaway is that **carry1** and **carry2** will **never** both be 1 at the s
 
 ![[full_adder_impl.png]](images/full_adder_impl.png)
 
+### Adder
+Now we wish to extend our addition capabilities from 1-bit values to **n-bit** values. 
+Let's try 8-bits.
+But how?
+
+Let's examine how we would add two 8-bit values by hand.
+
+```
+  01010101
++ 00001111
+----------
+```
+
+The first step to addition would be to add the digits in the ones-place, giving us
+
+```
+		1
+  01010101
++ 00001111
+----------
+		 0
+```
+
+The two 1s add together to give a **sum** of 0 and **carry** of 1. We then repeat these steps again for "twos" place
+
+```
+	   11
+  01010101
++ 00001111
+----------
+		00
+```
+Resulting in another **sum**=0 and **carry**=1. But notice how this addition involved the carry from the previous addition, totaling to 3 inputs (full adder?) while the first addition only needed 2 inputs (half adder?). 
+
+It follows that every addition other than the first can be done with full adders, and these additions can be computed sequentially.
+
+![[adder_impl.png]]
+
+#### How long will it take? 
+This setup allows us to add two 8-bit numbers, and we could extend this (1 half adder, n-1 full adders) strategy to add any n-bit numbers. However, one jarring flaw would be that the result would have to be generated **sequentially**. i.e. sum1 has to wait for carry0, sum2 for carry1, and so forth.
+
+What does *waiting* for the previous carry entail? 
+
+In reality, voltage are the inputs to these circuits. For example, the 0 and 1 input values above could be 0V and 1.2V respectively.
+
+To give a rough idea about how modern circuits work: [CMOS](https://en.wikipedia.org/wiki/CMOS)
+
+When voltage is applied, imagine water flowing through a narrow pipe into a water tank. When this water tank is filled sufficiently, a switch is flipped, and the output of the gate will change. Similarly, when no charge is applied, water flows out of the tank through the narrow pipe. When the water level is sufficiently low, the switch flips and the output changes again.
+
+Water Tank: Capacitor
+Water Flow: Electrical Charge
+Narrow Pipe: Resistance in the circuit
+"Sufficiently filled": Logic Threshold Voltage
+
+Switching the output of one CMOS gate may take up to 120 picoseconds. One Full Adder that consists of 2 Half Adders and 1 OR gate requires 360 picoseconds.
+
+Our 8-bit Adder needs: 
+120 + 360 x 7 = 2640 picoseconds = 2.64 nanoseconds
